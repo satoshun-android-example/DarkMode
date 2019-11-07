@@ -1,21 +1,22 @@
-package com.github.satoshun.example.home
+package com.github.satoshun.example.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.github.satoshun.example.databinding.HomeFragBinding
+import androidx.navigation.fragment.findNavController
+import com.github.satoshun.example.databinding.MainFragBinding
 
-class HomeFragment : Fragment() {
-  private lateinit var binding: HomeFragBinding
+class MainFragment : Fragment() {
+  private lateinit var binding: MainFragBinding
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    binding = HomeFragBinding.inflate(inflater, container, false)
+    binding = MainFragBinding.inflate(inflater, container, false)
     return binding.root
   }
 
@@ -23,6 +24,7 @@ class HomeFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
     binding.submit.setOnClickListener {
+      findNavController().navigate(MainFragmentDirections.navHomeToWebView())
     }
   }
 }
